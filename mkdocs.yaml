@@ -1,0 +1,59 @@
+site_name: Hanseatic
+repo_name: hanseatic-org.github.io
+repo_url: https://github.com/hanseatic-org/hanseatic-org.github.io
+strict: true
+
+nav:
+  - Home:
+    - Welcome: index.md
+  - Docs:
+    - API:
+      - v1beta1:
+        - /flights: api/v1beta1_flights.md
+        - /tracking: api/v1beta1_tracking.md
+
+plugins:
+  - search
+theme:
+  name: material
+  language: en
+  favicon: #TODO: add
+  palette:
+    - scheme: default
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    - scheme: slate
+      primary: blue
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite
+  - pymdownx.inlinehilite
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - def_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+extra_css:
+  - https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css
+extra_javascript:
+  - https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js
