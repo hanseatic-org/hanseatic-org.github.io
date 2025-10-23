@@ -10,6 +10,7 @@ nav:
     - API:
       - v1beta1:
         - /flights: api/v1beta1_flights.md
+        - /flights/round-trip: api/v1beta_flights_roundtrip.md
         - /tracking: api/v1beta1_tracking.md
 
 plugins:
