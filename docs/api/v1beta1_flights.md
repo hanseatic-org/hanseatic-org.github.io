@@ -1,25 +1,46 @@
 # GET /v1beta1/flights
 
-| Method | Path                                    | Description                      |
-|--------|-----------------------------------------|----------------------------------|
-| GET    | `/v1beta1/flights/{from}/{to}/{date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}` | Returns detailed information about the oneway flight, like price, number of legs, travel time and more. |
-| GET    |`/v1beta1/flights/{from}/{to}/{date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=cheapest`| Returns the cheapest flight for given inputs. |
-| GET    |`/v1beta1/flights/{from}/{to}/{date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=best`| Returns the best flight for given inputs. Best flight is a flight which has the best score calculated with price, number of layovers and average layover time. |
+## Overview
 
-Path Parameters:
+The **one-way flights endpoint** returns flight data for a single trip between two airports.  
+You can retrieve all available flights, or filter to get the **cheapest** or **best** option based on multiple factors.
 
-* from: IATA code (e.g. JFK for New York-Kennedy airport) of the departure airport
-* to: IATA code (e.g. JFK for New York-Kennedy airport) of the arrival airport
-* date: Flight date in YYYY-MM-DD format in the future (e.g. 2023-10-24)
-* num_adults: Number of adults (e.g. 1)
-* num_kids: Number of infants (e.g. 0)
-* num_inf: Number of infants (e.g. 0)
-* cabin_class: Cabin class for the flight (e.g. Economy). Can be "Economy", "Business", "First" or "Premium_Economy".
+---
 
-Query Parameters:
+## Endpoints
 
-* cheapest
-* best
+| Method | Path | Description |
+|--------|------|-------------|
+| **GET** | `/v1beta1/flights/{from}/{to}/{date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}` | Returns detailed information about one-way flights, including price, duration, layovers, and other flight details. |
+| **GET** | `/v1beta1/flights/{from}/{to}/{date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=cheapest` | Returns the cheapest available one-way flight for the given inputs. |
+| **GET** | `/v1beta1/flights/{from}/{to}/{date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=best` | Returns the best-scored one-way flight based on a combination of price, number of layovers, and average layover time. |
+
+---
+
+## Path Parameters
+
+| Parameter | Type | Description | Example |
+|------------|------|-------------|----------|
+| **from** | string | IATA code of the departure airport | `JFK` |
+| **to** | string | IATA code of the destination airport | `LAX` |
+| **date** | string | Flight date in `YYYY-MM-DD` format | `2025-12-21` |
+| **num_adults** | integer | Number of adult passengers | `1` |
+| **num_kids** | integer | Number of child passengers | `0` |
+| **num_inf** | integer | Number of infant passengers | `0` |
+| **cabin_class** | string | Cabin class for the flight. One of: `Economy`, `Premium_Economy`, `Business`, `First` | `Economy` |
+
+---
+
+## Query Parameters
+
+| Parameter | Description | Example |
+|------------|-------------|----------|
+| **cheapest** | Returns only the cheapest one-way flight available for the given inputs. | `?param=cheapest` |
+| **best** | Returns the best-scored one-way flight based on a balanced evaluation of price, layovers, and layover times. | `?param=best` |
+
+---
+
+## Examples
 
 Partial example response for `v1beta1/flights/JFK/NRT/2025-10-23/1/0/0/Economy`:
 ```json

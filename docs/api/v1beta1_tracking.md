@@ -1,19 +1,40 @@
 # GET /v1beta1/tracking
 
-| Method | Path                                    | Description                      |
-|--------|-----------------------------------------|----------------------------------|
-| GET    | `/v1beta1/tracking/{num}/{airline}/{date}` | Tracks a specific flight by flight number, airline code, and date. Returns detailed information including departure, arrival, aircraft, and status. |
-| GET    |`/v1beta1/tracking/{num}/{airline}/{date}?param=delay`| Returns departure and arrival delay in minutes. If negative, plane departed/arrived earlier than in schedule. |
+## Overview
 
-Path Parameters:
+The **flight tracking endpoint** provides real-time or scheduled tracking information for a specific flight.  
+You can retrieve full flight details or focus on delay information (departure and arrival).
 
-* num: Flight number (e.g. 33)
-* airline: Airline IATA code (e.g. DL)
-* date: Flight date in YYYYMMDD format (e.g. 20231024)
+---
 
-Query Parameters:
+## Endpoints
 
-* delay
+| Method | Path | Description |
+|--------|------|-------------|
+| **GET** | `/v1beta1/tracking/{num}/{airline}/{date}` | Tracks a specific flight by its flight number, airline code, and date. Returns detailed information including departure, arrival, aircraft type, and current flight status. |
+| **GET** | `/v1beta1/tracking/{num}/{airline}/{date}?param=delay` | Returns departure and arrival delay times in minutes. A negative delay means the flight departed or arrived earlier than scheduled. |
+
+---
+
+## Path Parameters
+
+| Parameter | Type | Description | Example |
+|------------|------|-------------|----------|
+| **num** | string | Flight number (numeric part only) | `33` |
+| **airline** | string | Airline IATA code | `DL` |
+| **date** | string | Flight date in `YYYYMMDD` format | `20251024` |
+
+---
+
+## Query Parameters
+
+| Parameter | Description | Example |
+|------------|-------------|----------|
+| **delay** | Returns only delay-related data (departure and arrival delays in minutes). | `?param=delay` |
+
+---
+
+## Examples
 
 Example response for `v1beta1/tracking/33/DL/20231024`:
 ```json
