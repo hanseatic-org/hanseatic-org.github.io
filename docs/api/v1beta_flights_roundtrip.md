@@ -11,9 +11,9 @@ You can retrieve all flight options, or filter to get the **cheapest** or **best
 
 | Method | Path                                                                                                                                                      | Description |
 |--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| **GET** | `/v1beta1/flights/round-trip/{from}/{to}/{departureDate}/{arrivalDate}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}` | Returns detailed information about round-trip flights, including price, duration, layovers, and other flight details. |
-| **GET** | `/v1beta1/flights/round-trip/{from}/{to}/{departureDate}/{arrivalDate}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=cheapest` | Returns the cheapest available round-trip flight for the given inputs. |
-| **GET** | `/v1beta1/flights/round-trip/{from}/{to}/{departureDate}/{arrivalDate}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=best` | Returns the best-scored round-trip flight based on a combination of price, number of layovers, and average layover time. |
+| **GET** | `/v1beta1/flights/round-trip/{from}/{to}/{departure_date}/{arrival_date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}` | Returns detailed information about round-trip flights, including price, duration, layovers, and other flight details. |
+| **GET** | `/v1beta1/flights/round-trip/{from}/{to}/{departure_date}/{arrival_date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=cheapest` | Returns the cheapest available round-trip flight for the given inputs. |
+| **GET** | `/v1beta1/flights/round-trip/{from}/{to}/{departure_date}/{arrival_date}/{num_adults}/{num_kids}/{num_inf}/{cabin_class}?param=best` | Returns the best-scored round-trip flight based on a combination of price, number of layovers, and average layover time. |
 
 ---
 
@@ -23,8 +23,8 @@ You can retrieve all flight options, or filter to get the **cheapest** or **best
 |------------|------|-------------|----------|
 | **from** | string | IATA code of the departure airport | `JFK` |
 | **to** | string | IATA code of the destination airport | `NRT` |
-| **departureDate** | string | Outbound flight date in `YYYY-MM-DD` format | `2025-12-21` |
-| **arrivalDate** | string | Return flight date in `YYYY-MM-DD` format | `2025-12-28` |
+| **departure_date** | string | Outbound flight date in `YYYY-MM-DD` format | `2025-12-21` |
+| **arrival_date** | string | Return flight date in `YYYY-MM-DD` format | `2025-12-28` |
 | **num_adults** | integer | Number of adult passengers | `1` |
 | **num_kids** | integer | Number of child passengers | `0` |
 | **num_inf** | integer | Number of infant passengers | `0` |

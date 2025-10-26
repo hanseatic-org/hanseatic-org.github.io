@@ -12,6 +12,7 @@ nav:
         - /flights: api/v1beta1_flights.md
         - /flights/round-trip: api/v1beta_flights_roundtrip.md
         - /tracking: api/v1beta1_tracking.md
+        - scoring: api/v1beta1_scoring.md
 
 plugins:
   - search
